@@ -1,14 +1,22 @@
 name: Compress images
-on: pull_request
+on: 
+  pull_request:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
 jobs:
   build:
-    name: calibreapp/webp-optimizer
+    name: calibreapp/image-actions
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
 
       - name: Compress Images
-        uses: calibreapp/webp-optimizer@master
+        uses: calibreapp/image-actions@main
         with:
           githubToken: ${{ secrets.METRICS_TOKEN }}
+          ignorePaths: "actions/**,templates/**"
