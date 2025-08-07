@@ -1,6 +1,7 @@
 name: Compress images
 on: 
-  pull_request:
+  push:
+    branches: ["master", "main"]
     paths:
       - '**/**.jpg'
       - '**/**.jpeg'
