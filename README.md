@@ -1,5 +1,5 @@
 # blogpic
-blogpic  
+[![pages-build-deployment](https://github.com/mogumc/blogpic/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/mogumc/blogpic/actions/workflows/pages/pages-build-deployment)
 
 # 别管他！
 这只是一个仓库  
