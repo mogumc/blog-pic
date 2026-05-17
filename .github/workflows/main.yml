@@ -63,4 +63,4 @@ jobs:
           base: ""
           plugin_rss: yes
           plugin_rss_source: https://blog.moguq.top/rss.xml
- 。。      plugin_rss_limit: 4
+          plugin_rss_limit: 4
