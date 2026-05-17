@@ -32,7 +32,6 @@ jobs:
           plugin_introduction: yes
           plugin_wakatime: yes
           plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
-          plugin_wakatime_repositories_visibility: public
           plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
       - uses: lowlighter/metrics@latest
         with:
