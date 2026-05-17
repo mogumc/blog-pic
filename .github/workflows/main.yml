@@ -21,7 +21,7 @@ jobs:
           plugin_steam: yes
           plugin_steam_user: "76561198977272054"
           plugin_steam_sections: player,recently-played
-          plugin_steam_recent_games_limit: 3
+          plugin_steam_recent_games_limit: 4
           plugin_steam_achievements_limit: 0
       - uses: lowlighter/metrics@latest
         with:
