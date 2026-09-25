@@ -1,29 +1,34 @@
 name: Metrics
 on:
-  # Schedule daily updates
   schedule: [{ cron: "0 0 * * *" }]
-  # (optional) Run workflow manually
   workflow_dispatch:
+
 jobs:
-  github-metrics:
+  steam:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    permissions: { contents: write }
     steps:
-      - uses: mogumc/metrics@v3.35
+      - uses: actions/checkout@v4
+      - uses: lowlighter/metrics@latest
         with:
           filename: actions/metrics.plugin.steam.svg
           token: NOT_NEEDED
           template: classic
           base: ""
           config_timezone: Asia/Shanghai
-          plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
           plugin_steam: yes
+          plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
           plugin_steam_user: "76561198977272054"
           plugin_steam_sections: player,recently-played
           plugin_steam_recent_games_limit: 4
           plugin_steam_achievements_limit: 0
-      - uses: mogumc/metrics@v3.35
+
+  intro-wakatime:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lowlighter/metrics@latest
         with:
           filename: actions/metrics.plugin.introduction.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -33,13 +38,25 @@ jobs:
           plugin_wakatime: yes
           plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
           plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
-      - uses: mogumc/metrics@v3.35
+
+  traffic:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lowlighter/metrics@latest
         with:
           filename: actions/metrics.plugin.traffic.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: repositories
           plugin_traffic: yes
-      - uses: mogumc/metrics@v3.35
+
+  pagespeed-index:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lowlighter/metrics@latest
         with:
           filename: actions/metrics.plugin.pagespeed.index.svg
           token: NOT_NEEDED
@@ -47,15 +64,27 @@ jobs:
           plugin_pagespeed: yes
           plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
           plugin_pagespeed_url: https://www.moguq.top
-      - uses: mogumc/metrics@v3.35
+
+  pagespeed-blog:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lowlighter/metrics@latest
         with:
           filename: actions/metrics.plugin.pagespeed.blog.svg
           token: NOT_NEEDED
           base: ""
           plugin_pagespeed: yes
           plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
-          plugin_pagespeed_url: https://blog.moguq.top          
-      - uses: mogumc/metrics@v3.35
+          plugin_pagespeed_url: https://blog.moguq.top
+
+  rss:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lowlighter/metrics@latest
         with:
           filename: actions/metrics.plugin.rss.svg
           token: NOT_NEEDED
