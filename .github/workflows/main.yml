@@ -9,7 +9,7 @@ jobs:
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
-      - uses: lowlighter/metrics@latest
+      - uses: EUR-UN/metrics-community@v3.35.0-community.2
         with:
           filename: actions/metrics.plugin.steam.svg
           token: NOT_NEEDED
@@ -28,7 +28,7 @@ jobs:
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
-      - uses: lowlighter/metrics@latest
+      - uses: EUR-UN/metrics-community@v3.35.0-community.2
         with:
           filename: actions/metrics.plugin.introduction.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -44,7 +44,7 @@ jobs:
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
-      - uses: lowlighter/metrics@latest
+      - uses: EUR-UN/metrics-community@v3.35.0-community.2
         with:
           filename: actions/metrics.plugin.traffic.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -56,7 +56,7 @@ jobs:
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
-      - uses: lowlighter/metrics@latest
+      - uses: EUR-UN/metrics-community@v3.35.0-community.2
         with:
           filename: actions/metrics.plugin.pagespeed.index.svg
           token: NOT_NEEDED
@@ -70,7 +70,7 @@ jobs:
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
-      - uses: lowlighter/metrics@latest
+      - uses: EUR-UN/metrics-community@v3.35.0-community.2
         with:
           filename: actions/metrics.plugin.pagespeed.blog.svg
           token: NOT_NEEDED
@@ -84,7 +84,7 @@ jobs:
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
-      - uses: lowlighter/metrics@latest
+      - uses: EUR-UN/metrics-community@v3.35.0-community.2
         with:
           filename: actions/metrics.plugin.rss.svg
           token: NOT_NEEDED
