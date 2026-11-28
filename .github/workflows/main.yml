@@ -4,12 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  steam:
+  metrics:
     runs-on: ubuntu-latest
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
-      - uses: mogumc/metrics@v3.35.1-beta
+
+      - name: Steam
+        continue-on-error: true
+        uses: mogumc/metrics@master
         with:
           filename: actions/metrics.plugin.steam.svg
           token: NOT_NEEDED
@@ -23,13 +26,10 @@ jobs:
           plugin_steam_recent_games_limit: 4
           plugin_steam_achievements_limit: 0
           plugins_errors_fatal: false
-          
-  intro-wakatime:
-    runs-on: ubuntu-latest
-    permissions: { contents: write }
-    steps:
-      - uses: actions/checkout@v4
-      - uses: mogumc/metrics@v3.35.1-beta
+
+      - name: Introduction and Wakatime
+        continue-on-error: true
+        uses: mogumc/metrics@master
         with:
           filename: actions/metrics.plugin.introduction.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -40,24 +40,18 @@ jobs:
           plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
           plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
 
-  traffic:
-    runs-on: ubuntu-latest
-    permissions: { contents: write }
-    steps:
-      - uses: actions/checkout@v4
-      - uses: mogumc/metrics@v3.35.1-beta
+      - name: Traffic
+        continue-on-error: true
+        uses: mogumc/metrics@master
         with:
           filename: actions/metrics.plugin.traffic.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: repositories
           plugin_traffic: yes
 
-  pagespeed-index:
-    runs-on: ubuntu-latest
-    permissions: { contents: write }
-    steps:
-      - uses: actions/checkout@v4
-      - uses: mogumc/metrics@v3.35.1-beta
+      - name: PageSpeed (index)
+        continue-on-error: true
+        uses: mogumc/metrics@master
         with:
           filename: actions/metrics.plugin.pagespeed.index.svg
           token: NOT_NEEDED
@@ -66,12 +60,9 @@ jobs:
           plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
           plugin_pagespeed_url: https://www.moguq.top
 
-  pagespeed-blog:
-    runs-on: ubuntu-latest
-    permissions: { contents: write }
-    steps:
-      - uses: actions/checkout@v4
-      - uses: mogumc/metrics@v3.35.1-beta
+      - name: PageSpeed (blog)
+        continue-on-error: true
+        uses: mogumc/metrics@master
         with:
           filename: actions/metrics.plugin.pagespeed.blog.svg
           token: NOT_NEEDED
@@ -80,12 +71,9 @@ jobs:
           plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
           plugin_pagespeed_url: https://blog.moguq.top
 
-  rss:
-    runs-on: ubuntu-latest
-    permissions: { contents: write }
-    steps:
-      - uses: actions/checkout@v4
-      - uses: mogumc/metrics@v3.35.1-beta
+      - name: RSS
+        continue-on-error: true
+        uses: mogumc/metrics@master
         with:
           filename: actions/metrics.plugin.rss.svg
           token: NOT_NEEDED
