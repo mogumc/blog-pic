@@ -22,8 +22,7 @@ jobs:
           plugin_steam_sections: player,recently-played
           plugin_steam_recent_games_limit: 4
           plugin_steam_achievements_limit: 0
-          plugin_steam_show_avatar: false
-          plugin_steam_ignore_errors: yes
+          plugins_errors_fatal: false
           
   intro-wakatime:
     runs-on: ubuntu-latest
